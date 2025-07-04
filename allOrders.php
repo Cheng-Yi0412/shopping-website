@@ -1,4 +1,9 @@
-<?php include('head.php') ?>
+<?php include('head.php');?>
+<?php
+    if(!isset($_SESSION['email'])){
+        header("Location: ./index.php");
+    }
+?>
 <h1>訂單紀錄</h1>
 <?php
     $orderData= file_get_contents('data.csv');

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,14 @@
     <nav>
         <ul class ="clientMenu">
             <li><a href="./index.php">首頁</li>
-        </ul>
-        <ul class ="clientMenu">
             <li><a href="./allOrders.php">所有訂單</li>
-            <li><a href="./functions.php?op=logout">登出</a></li>
-            <li><a href="./login.php">登入</a></li>
+            <?php
+                if(isset($_SESSION['email'])){
+                    echo '<li><a href="./functions.php?op=logout">登出</a></li>';
+                }
+                else echo '<li><a href="./login.php">登入</a></li>';
+            ?>
+            
         </ul>
     </nav>
 </body>

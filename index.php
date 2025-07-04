@@ -1,4 +1,5 @@
 <?php include("stock.php"); ?>
+<?php include('head.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <meta name="viewport" content="wdith=device-width", initial-scale="1.0">
 </head>
 <body>
-    <?php include('head.php') ?>
     
         <div>
             <?php
