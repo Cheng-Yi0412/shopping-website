@@ -17,9 +17,11 @@ function logout(){
 }
 
 function checkLogin($email, $password){
-    $admin_email='test_email';
-    $admin_password='test_password';
-    if($email == $admin_email && $password ==$admin_password){
+    global $dbconnection;
+    $staffQ=mysqli_query($dbconnection,"SELECT * FROM `staff` WHERE `email`='$email'");
+    $staff=mysqli_fetch_assoc($staffQ);
+
+    if($email === $staff['email'] && $password ==$staff['password']){
         $_SESSION['email']=$email;
         header('Location: ./allOrders.php');
     }
@@ -29,7 +31,23 @@ function checkLogin($email, $password){
 }
 
 function creatOrder(){
-    echo '<pre>
+    $orderQ=mysqli_query($dbconnection,"INSERT INTO `order`
+    (`client_name`, `client_email`, `quantity`)
+    VALUES
+    ()
+    ")
+
+
+
+
+
+
+
+
+
+
+
+    /*echo '<pre>
     <h1>訂單已完成</h1>'.
     $_POST['itemid'].
     $_POST['quantity'].
@@ -37,7 +55,7 @@ function creatOrder(){
     $my_file= fopen('data.csv','a') or die("存入失敗");
     $data= $_POST['itemid'].','.$_POST['email'].','.$_POST['name'].','.$_POST['quantity'].','.date('Y-M-N H:i:s')."\r\n";
     fwrite($my_file,$data);
-    fclose($my_file);
+    fclose($my_file);*/
 }
 
 ?>

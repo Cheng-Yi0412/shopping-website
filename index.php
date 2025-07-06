@@ -1,5 +1,7 @@
-<?php include("stock.php"); ?>
-<?php include('head.php') ?>
+<?php 
+    include("stock.php"); 
+    include('head.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +13,19 @@
     
         <div>
             <?php
-                foreach($item as $key => $value){
-                    echo "<img src='./images/{$value['image']}' width='200' height='auto' />
-                    <p>名稱:{$value['name']}</p>
-                    <p>價格:{$value['price']}</p>
-                    <a href='./order.php?itemid={$value['name']}' class='buyBtn'>預定{$value['name']}</a></br>
-                    ";                    
+                $itemQ=mysqli_query($dbconnection,'select * FROM `item`');
+
+                echo "<div style='display:flex; flex-wrap:wrap; gap:10px'>";
+                while ($item=mysqli_fetch_assoc($itemQ)) {
+                    echo "<div>
+                    <img src='./images/{$item['image']}' width='200' height='auto'><br>
+                    {$item['name']}<br>
+                    售價{$item['price']}<br>
+                    剩餘數量{$item['remaining']}<br>
+                    <a href='./order.php?itemid={$item['item_id']}' class='btn'>下訂</a>
+                    </div>";
                 }
+                echo "</div>";
             ?>    
         </div>
         
