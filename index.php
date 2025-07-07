@@ -1,6 +1,5 @@
 <?php 
-    include("stock.php"); 
-    include('head.php');
+    include_once('head.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +10,13 @@
 </head>
 <body>
     
-        <div>
+        <div class="container">
             <?php
                 $itemQ=mysqli_query($dbconnection,'select * FROM `item`');
 
                 echo "<div style='display:flex; flex-wrap:wrap; gap:10px'>";
                 while ($item=mysqli_fetch_assoc($itemQ)) {
-                    echo "<div>
+                    echo "<div class='card'>
                     <img src='./images/{$item['image']}' width='200' height='auto'><br>
                     {$item['name']}<br>
                     售價{$item['price']}<br>
@@ -29,6 +28,6 @@
             ?>    
         </div>
         
-    <?php include('footer.php') ?>
+    <?php include_once('footer.php') ?>
 </body>
 </html>

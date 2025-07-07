@@ -1,5 +1,9 @@
-<?php include('head.php') ?>
-
+<?php include_once('head.php') ?>
+<?php
+/*if(!isset($_SESSION['email'])){
+    header('Location:./index.php');
+}*/
+?>
 
 <form action="functions.php?op=creatOrder" method="post" >
     <input name="itemid" type="hidden" name="itemid" value="<?php echo $_GET['itemid']; ?>">
@@ -18,4 +22,4 @@
     <input class="buyBtn" type="submit" value="下單">
 </form>
 
-<?php include('footer.php') ?>
+<?php include_once('footer.php') ?>

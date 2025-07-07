@@ -1,4 +1,4 @@
-<?php include('head.php') ?>
+<?php include_once('head.php') ?>
 <?php
 if($_GET['op']=="creatOrder"){
     creatOrder();
@@ -21,7 +21,7 @@ function checkLogin($email, $password){
     $staffQ=mysqli_query($dbconnection,"SELECT * FROM `staff` WHERE `email`='$email'");
     $staff=mysqli_fetch_assoc($staffQ);
 
-    if($email === $staff['email'] && $password ==$staff['password']){
+    if($email === $staff['email'] && password_verify($password,$staff['password']) ){
         $_SESSION['email']=$email;
         header('Location: ./allOrders.php');
     }
@@ -31,19 +31,18 @@ function checkLogin($email, $password){
 }
 
 function creatOrder(){
-    $orderQ=mysqli_query($dbconnection,"INSERT INTO `order`
-    (`client_name`, `client_email`, `quantity`)
+    global $dbconnection;
+    $order_SQL="INSERT INTO `order`
+    (`client_name`, `client_email`, `quantity`, `item_id`)
     VALUES
-    ()
-    ")
+    ('{$_POST['name']}','{$_POST['email']}',{$_POST['quantity']},{$_POST['itemid']})
+    ";
 
-
-
-
-
-
-
-
+    if(mysqli_query($dbconnection,$order_SQL)){
+        header('Location:./allOrders.php');
+    }else{
+        echo"執行失敗";
+ }
 
 
 
@@ -59,4 +58,4 @@ function creatOrder(){
 }
 
 ?>
-<?php include('footer.php') ?>
+<?php include_once('footer.php') ?>
