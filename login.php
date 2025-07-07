@@ -1,6 +1,6 @@
 <?php include_once('head.php') ?>
 登入頁
-<form action="functions.php?op=checkLogin" method="post" autocomplete="off">
+<form action="functions.php?op=checkLogin" method="post" autocomplete="off">            <!--登入表單，將資料傳給function-->
     <label for="email">電子郵件</label>
     <input id="email" type="email" name="email" required>
 

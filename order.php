@@ -5,7 +5,7 @@
 }*/
 ?>
 
-<form action="functions.php?op=creatOrder" method="post" >
+<form action="functions.php?op=creatOrder" method="post" >      <!--輸入表單，將要下的訂單資料傳給function-->
     <input name="itemid" type="hidden" name="itemid" value="<?php echo $_GET['itemid']; ?>">
         <?php echo "{$_GET['itemid']}" ?>
     </input></br>

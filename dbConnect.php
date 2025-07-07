@@ -5,6 +5,6 @@
     }catch(mysqli_sql_exception $error){
         echo "資料庫連線失敗:".$error->getCode();
         exit();
-    }
+    }   //資料庫連接確認
     
 ?>

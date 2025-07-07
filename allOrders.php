@@ -8,8 +8,8 @@
 <?php
     global $dbconnection;
     $orderQ=mysqli_query($dbconnection,"SELECT * FROM `order`");
-    while($order=mysqli_fetch_assoc($orderQ)){
-        $itemQ=mysqli_query($dbconnection,"SELECT * FROM `item` WHERE item_id =$order[item_id] ");
+    while($order=mysqli_fetch_assoc($orderQ)){          //將所有訂單紀錄印出
+        $itemQ=mysqli_query($dbconnection,"SELECT * FROM `item` WHERE item_id =$order[item_id] ");      //將兩個資料表的id比對後，查找出物品名稱
         $item=mysqli_fetch_assoc($itemQ);
         echo '
             <table border="1">
