@@ -5,6 +5,7 @@ MYSQL資料庫連接
 會員系統
 - 使用session判斷會員系統
 - password經過hash處理
+- email確認時使用prepare statement防止 injection
 - 會員才可查看自己的訂單
   
 資料庫輸入
